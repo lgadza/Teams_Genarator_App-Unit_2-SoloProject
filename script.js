@@ -66,10 +66,14 @@ assignMemberBtn.addEventListener("click", () => {
       teamDiv.appendChild(h3);
       teamDiv.appendChild(namesDiv);
       allTeams.appendChild(teamDiv);
-    } else {
-      let noMembers = document.querySelector(".team2");
-      noMembers.style.display = "block";
     }
+  }
+});
+// console.log(totalTeams.value);
+assignMemberBtn.addEventListener("mousedown", () => {
+  if (Number(totalTeams.value) === 0) {
+    let noMembers = document.querySelector(".team2");
+    noMembers.style.display = "block";
   }
 });
 
@@ -80,14 +84,22 @@ let waitingList = document.querySelectorAll(".ordered-names li");
 let fillMembersBtn = document.querySelector(".fill");
 fillMembersBtn.addEventListener("click", () => {
   for (let i = 0; i < totalTeams.value; i++) {
-    let randomName = [Math.floor(Math.random() * allLi.length)];
-    allLi[randomName].remove();
-
     let ol = document.createElement("ul");
     let li = document.createElement("li");
-    li.textContent = allNames[randomName];
-    ol.appendChild(li);
-    teamsToAddNames[i].appendChild(ol);
+    let randomName = [Math.floor(Math.random() * allLi.length)];
+    allLi[randomName].remove();
+    if (allNames.length >= randomName) {
+      li.textContent = allNames.splice([randomName], 1);
+      ol.appendChild(li);
+      teamsToAddNames[i].appendChild(ol);
+    }
+    //TOTAL PEOPLE LEFT
+
+    if (allNames.length >= randomName) {
+      numberOfPeople = Number(totalPeople.textContent);
+      numberOfPeople--;
+      totalPeople.textContent = numberOfPeople;
+    }
   }
 });
 console.log(fillMembersBtn);
