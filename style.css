@@ -63,6 +63,7 @@ h1 {
 .assign-member {
   width: 388px;
   margin-left: 0;
+  background-color: rgb(172, 172, 111);
 }
 .team:hover {
   cursor: pointer;
@@ -124,6 +125,7 @@ li {
 }
 .fill {
   margin-top: 10px;
+  background-color: rgb(140, 178, 140);
 }
 .attendence {
   display: flex;
