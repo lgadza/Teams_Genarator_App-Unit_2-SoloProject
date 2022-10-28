@@ -4,12 +4,14 @@ let nameList = document.querySelector(".ordered-names");
 let totalPeople = document.querySelector(".totalPeople");
 // console.log(totalPeople);
 let allNames = [];
+let allLi = [];
 
 addBtn.addEventListener("click", () => {
   if (nameInput.value !== "") {
     let li = document.createElement("li");
     li.textContent = `${nameInput.value}`;
     allNames.push(li.textContent);
+    allLi.push(li);
     nameList.appendChild(li);
     let breakline = document.createElement("hr");
     li.appendChild(breakline);
@@ -72,22 +74,20 @@ assignMemberBtn.addEventListener("click", () => {
 });
 
 // let teamsToAddNames = document.querySelectorAll(".team-members");
-let waitingList = document.querySelectorAll("li");
+let waitingList = document.querySelectorAll(".ordered-names li");
 
 //Grouping the memeber into teams
 let fillMembersBtn = document.querySelector(".fill");
 fillMembersBtn.addEventListener("click", () => {
   for (let i = 0; i < totalTeams.value; i++) {
-    let randomName = [Math.floor(Math.random() * waitingList.length)];
-    waitingList[randomName].style.backgroundColor = "red";
-    // waitingList.splice(randomName, 1);
-    // let ol = document.createElement("ol");
-    // let li = document.createElement("li");
-    // li.textContent = allNames[i];
-    // ol.appendChild(li);
-    // // let namesDiv = document.createElement("div");
-    // // namesDiv.classList = "team-members";
-    // teamsToAddNames[randomTeam].appendChild(ol);
+    let randomName = [Math.floor(Math.random() * allLi.length)];
+    allLi[randomName].remove();
+
+    let ol = document.createElement("ul");
+    let li = document.createElement("li");
+    li.textContent = allNames[randomName];
+    ol.appendChild(li);
+    teamsToAddNames[i].appendChild(ol);
   }
 });
 console.log(fillMembersBtn);
