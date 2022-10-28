@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Get In Teams</h1>
+    <div class="container">
+      <div class="members-to-add">
+        <div class="top-bar">
+          <div class="add-member-section">
+            <input
+              type="text"
+              placeholder="Add a member"
+              class="add-member"
+              required
+            />
+            <button class="add-btn">Add</button>
+          </div>
+          <div class="team-section">
+            <button class="minus team">-</button>
+            <!-- <div class="number-of-teams">0</div> -->
+            <input type="text" class="number-of-teams" value="0" />
+            <button class="add team">+</button>
+          </div>
+        </div>
+        <div class="attendence">
+          <h4>Total People</h4>
+          <h2 class="totalPeople">0</h2>
+        </div>
+        <div class="list-of-memebrs">
+          <ol class="ordered-names"></ol>
+        </div>
+        <div class="bottom-bar">
+          <button class="assign-member team">Create Teams</button>
+
+          <button class="reset team">Reset</button>
+        </div>
+        <button class="assign-member team fill">
+          Fill Teams/Assign Members
+        </button>
+      </div>
+      <div class="teams-for-members">
+        <div class="team2">
+          <h3>Add Members First</h3>
+        </div>
+        <!-- <div class="team1">
+          <h3>Team 2</h3>
+          <div class="team-members"></div>
+        </div>
+        <div class="team1">
+          <h3>Team 3</h3>
+          <div class="team-members"></div>
+        </div>
+        <div class="team1">
+          <h3>Team 3</h3>
+          <div class="team-members"></div>
+        </div> -->
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
