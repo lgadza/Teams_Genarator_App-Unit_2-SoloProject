@@ -18,11 +18,14 @@ addBtn.addEventListener("click", () => {
     nameInput.value = "";
   }
 });
+// console.log(nameInput.value);
 let numberOfPeople = 0;
 addBtn.addEventListener("click", () => {
+  // if (nameInput.value !== "") {
   numberOfPeople = Number(totalPeople.textContent);
   numberOfPeople++;
   totalPeople.textContent = numberOfPeople;
+  // }
 });
 
 // console.log(allNames);
@@ -86,16 +89,17 @@ fillMembersBtn.addEventListener("click", () => {
   for (let i = 0; i < totalTeams.value; i++) {
     let ol = document.createElement("ul");
     let li = document.createElement("li");
-    let randomName = [Math.floor(Math.random() * allLi.length)];
+    let randomName = [Math.floor(Math.random() * allNames.length)];
     allLi[randomName].remove();
-    if (allNames.length >= randomName) {
-      li.textContent = allNames.splice([randomName], 1);
-      ol.appendChild(li);
-      teamsToAddNames[i].appendChild(ol);
-    }
+    // allLi[randomName].style.color = "red";
+    //if (allNames.length >= randomName) {
+    li.textContent = allNames.splice([randomName], 1);
+    ol.appendChild(li);
+    teamsToAddNames[i].appendChild(ol);
+    //}
     //TOTAL PEOPLE LEFT
 
-    if (allNames.length >= randomName) {
+    if (allNames.length > 0) {
       numberOfPeople = Number(totalPeople.textContent);
       numberOfPeople--;
       totalPeople.textContent = numberOfPeople;
